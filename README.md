@@ -1,6 +1,6 @@
 # goJeffgo
 
-Debian golang version is always behind, this will always pull the latest direct from Google.
+Debian golang version is always behind, this short shell script will pull the latest direct from Google.
 
 ## Getting Started
 
