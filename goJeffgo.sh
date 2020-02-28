@@ -6,7 +6,7 @@
 # Installs golang unattended directly from google
 # Debian sources are out of date so we need to sort it out manually
 #
-# RUN: wget -O - "https://raw.githubusercontent.com/JeffreyShran/Snippets/master/goJeffgo.sh" | bash
+# RUN: wget -O - "https://raw.githubusercontent.com/JeffreyShran/goJeffgo/master/goJeffgo.sh" | bash
 ######################################################################################################################################################
 
 function version() { # https://apple.stackexchange.com/a/123408 - You need to define functions in advance of you calling them in your script
