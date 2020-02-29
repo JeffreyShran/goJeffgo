@@ -2,6 +2,8 @@
 
 Debian golang version is always behind, this short shell script will pull the latest direct from Google.
 
+Tested on: Debian GNU/Linux 10 (buster)
+
 ## Getting Started
 
 These instructions will get you up and running. This script searches for existing installs and will compare version with that available from Google therefore running in in succession will also allow you to update by completely removing and re-installing golang.
