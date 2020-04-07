@@ -20,6 +20,7 @@ sudo apt install wget
 
 ### Running
 
+Switch to a root interactive shell (`sudo -i`) and run:
 ```
 wget -O - "https://raw.githubusercontent.com/JeffreyShran/goJeffgo/master/goJeffgo.sh" | bash
 ```
