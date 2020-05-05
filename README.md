@@ -1,3 +1,7 @@
+
+# NO LONGER MAINTAINED - USE THIS INSTEAD: https://github.com/moovweb/gvm
+
+
 # goJeffgo
 
 Debian golang version is always behind, this short shell script will pull the latest direct from Google.
