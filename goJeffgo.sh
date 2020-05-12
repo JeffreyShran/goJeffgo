@@ -14,16 +14,17 @@ function version() { # https://apple.stackexchange.com/a/123408 - You need to de
 }
 
 AVAILABLEVERSION=$(curl -s https://golang.org/VERSION?m=text) # Returns in form of "go1.13.5"
+SAYMYNAME=$(id -u -n) # Returns current user. Not tested over SSH, could return SSH user in that instance.
 
 function installGoFromTheGOOG() { # Pulls down latest golang direct from Google and sets PATH / GOPATH
   cd ~
   wget https://dl.google.com/go/$AVAILABLEVERSION.linux-amd64.tar.gz
   tar -C /usr/local -xzf $AVAILABLEVERSION.linux-amd64.tar.gz
-  chown -R root:root /usr/local/go
+  chown -R $SAYMYNAME:$SAYMYNAME /usr/local/go
   mkdir -p $HOME/go/{bin,src}
-  echo "export GOPATH=$HOME/go" >> /root/.profile; source /root/.profile
-  echo "export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin" >> /root/.profile
-  . /root/.profile
+  echo "export GOPATH=$HOME/go" >> /$SAYMYNAME/.profile; source /$SAYMYNAME/.profile
+  echo "export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin" >> /$SAYMYNAME/.profile
+  . /$SAYMYNAME/.profile
   rm $AVAILABLEVERSION.linux-amd64.tar.gz
 }
 
