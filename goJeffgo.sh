@@ -9,6 +9,11 @@
 # RUN: wget -O - "https://raw.githubusercontent.com/JeffreyShran/goJeffgo/master/goJeffgo.sh" | bash
 ######################################################################################################################################################
 
+if [ $EUID != 0 ]; then # Elevate if not already.
+    sudo "$0" "$@"
+    exit $?
+fi
+
 function version() { # https://apple.stackexchange.com/a/123408 - You need to define functions in advance of you calling them in your script
   echo "$@" | awk -F. '{ printf("%d%03d%03d%03d\n", $1,$2,$3,$4); }'
 }
