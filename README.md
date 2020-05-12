@@ -2,10 +2,9 @@
 
 Debian golang version is always behind, this short shell script will pull the latest direct from Google.
 
-Tested on the following running bash:
+Tested with success on the following systems:
 
-* Debian GNU/Linux-amd64 10 (buster) on DigitalOcean with a *permanent* root user.
-* Debian GNU/Linux-amd64 10 (buster) on WSL2 with a *non permanent* root user.
+* Debian GNU/Linux-amd64 10 (buster) on WSL2 (bash) with a normal (non-root) user.
 
 ## Getting Started
 
@@ -21,13 +20,8 @@ sudo apt install wget
 
 ### Running
 
-As root:
 ```
-wget -O - "https://raw.githubusercontent.com/JeffreyShran/goJeffgo/master/goJeffgo.sh" | bash
-```
-As non-root (sudo):
-```
-wget -O - "https://raw.githubusercontent.com/JeffreyShran/goJeffgo/master/goJeffgo.sh" | sudo bash
+wget -q -O - "https://raw.githubusercontent.com/JeffreyShran/goJeffgo/master/goJeffgo.sh" | bash
 ```
 
 ## Contributing / Feedback / Requests
