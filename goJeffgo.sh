@@ -26,6 +26,7 @@ function installGoFromTheGOOG() { # Pulls down latest golang direct from Google 
   wget https://dl.google.com/go/$AVAILABLEVERSION.linux-amd64.tar.gz
   tar -C /usr/local -xzf $AVAILABLEVERSION.linux-amd64.tar.gz
   sudo chown -R $SAYMYNAME:$SAYMYNAME /usr/local/go
+  sudo chown $SAYMYNAME ~/.bash_profile
   mkdir -p $HOME/go/{bin,src}
   sudo echo "export GOPATH=$HOME/go" >> $HOME/.bash_profile; source $HOME/.bash_profile
   sudo echo "export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin" >> $HOME/.bash_profile
