@@ -1,12 +1,11 @@
-
-# NO LONGER MAINTAINED - USE THIS INSTEAD: https://github.com/moovweb/gvm
-
-
 # goJeffgo
 
 Debian golang version is always behind, this short shell script will pull the latest direct from Google.
 
-Tested on: Debian GNU/Linux 10 (buster) using DigitalOcean with a permanent root user.
+Tested on:
+
+* Debian GNU/Linux 10 (buster) using DigitalOcean with a *permanent* root user.
+* Debian GNU/Linux 10 (buster) using WSL2 with a *non permanent* root user.
 
 ## Getting Started
 
