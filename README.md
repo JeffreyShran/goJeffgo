@@ -21,8 +21,13 @@ sudo apt install wget
 
 ### Running
 
+As root:
 ```
 wget -O - "https://raw.githubusercontent.com/JeffreyShran/goJeffgo/master/goJeffgo.sh" | bash
+```
+As non-root (sudo):
+```
+wget -O - "https://raw.githubusercontent.com/JeffreyShran/goJeffgo/master/goJeffgo.sh" | sudo bash
 ```
 
 ## Contributing / Feedback / Requests
