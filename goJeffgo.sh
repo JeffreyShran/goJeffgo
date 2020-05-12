@@ -30,7 +30,7 @@ function installGoFromTheGOOG() { # Pulls down latest golang direct from Google 
   mkdir -p $HOME/go/{bin,src}
   sudo echo "export GOPATH=$HOME/go" >> $HOME/.bash_profile; source $HOME/.bash_profile
   sudo echo "export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin" >> $HOME/.bash_profile
-  sudo . $HOME/.bash_profile
+  . $HOME/.bash_profile
   sudo rm $AVAILABLEVERSION.linux-amd64.tar.gz
   echo " [!] Finished"
 }
