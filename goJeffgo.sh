@@ -27,9 +27,9 @@ function installGoFromTheGOOG() { # Pulls down latest golang direct from Google 
   tar -C /usr/local -xzf $AVAILABLEVERSION.linux-amd64.tar.gz
   chown -R $SAYMYNAME:$SAYMYNAME /usr/local/go
   mkdir -p $HOME/go/{bin,src}
-  echo "export GOPATH=$HOME/go" >> $HOME/.profile; source $HOME/.profile
-  echo "export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin" >> $HOME/.profile
-  . $HOME/.profile
+  echo "export GOPATH=$HOME/go" >> $HOME/.bash_profile; source $HOME/.bash_profile
+  echo "export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin" >> $HOME/.bash_profile
+  . $HOME/.bash_profile
   rm $AVAILABLEVERSION.linux-amd64.tar.gz
   echo " [!] Finished"
 }
