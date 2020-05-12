@@ -25,12 +25,12 @@ function installGoFromTheGOOG() { # Pulls down latest golang direct from Google 
   cd ~
   wget https://dl.google.com/go/$AVAILABLEVERSION.linux-amd64.tar.gz
   tar -C /usr/local -xzf $AVAILABLEVERSION.linux-amd64.tar.gz
-  chown -R $SAYMYNAME:$SAYMYNAME /usr/local/go
+  sudo chown -R $SAYMYNAME:$SAYMYNAME /usr/local/go
   mkdir -p $HOME/go/{bin,src}
-  echo "export GOPATH=$HOME/go" >> $HOME/.bash_profile; source $HOME/.bash_profile
-  echo "export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin" >> $HOME/.bash_profile
-  . $HOME/.bash_profile
-  rm $AVAILABLEVERSION.linux-amd64.tar.gz
+  sudo echo "export GOPATH=$HOME/go" >> $HOME/.bash_profile; source $HOME/.bash_profile
+  sudo echo "export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin" >> $HOME/.bash_profile
+  sudo . $HOME/.bash_profile
+  sudo rm $AVAILABLEVERSION.linux-amd64.tar.gz
   echo " [!] Finished"
 }
 
@@ -44,7 +44,7 @@ if [[ $(which go | tr -d ' \n\r\t ' | head -c1 | wc -c) -ne 0 ]]; then # https:/
 
   if [ $(version $INSTALLEDVERSION | cut -c 3-) -lt $(version $AVAILABLEVERSION) ]; then # Comparison Operators - http://tldp.org/LDP/abs/html/comparison-ops.html also pipe to cut and remove leading 2 characters
     echo " [-] Current go version is older than the one available from Google"
-    rm -f $(which go)    # remove current golang if exists. -f will ignore nonexistent files, never prompt
+    sudo rm -f $(which go)    # remove current golang if exists. -f will ignore nonexistent files, never prompt
     installGoFromTheGOOG # Update to latest verion
   else
     echo " [-] Currently installed golang v$INSTALLEDVERSION is already latest version"
