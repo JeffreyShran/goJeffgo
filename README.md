@@ -2,10 +2,10 @@
 
 Debian golang version is always behind, this short shell script will pull the latest direct from Google.
 
-Tested on:
+Tested on the following running bash:
 
-* Debian GNU/Linux 10 (buster) using DigitalOcean with a *permanent* root user.
-* Debian GNU/Linux 10 (buster) using WSL2 with a *non permanent* root user.
+* Debian GNU/Linux-amd64 10 (buster) on DigitalOcean with a *permanent* root user.
+* Debian GNU/Linux-amd64 10 (buster) on WSL2 with a *non permanent* root user.
 
 ## Getting Started
 
