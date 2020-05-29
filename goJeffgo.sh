@@ -6,7 +6,7 @@
 # Installs golang unattended directly from google
 # Debian sources are out of date so we need to sort it out manually
 #
-# RUN: wget -O - "https://raw.githubusercontent.com/JeffreyShran/goJeffgo/master/goJeffgo.sh" | bash
+# RUN: curl https://raw.githubusercontent.com/JeffreyShran/goJeffgo/master/goJeffgo.sh | bash
 ######################################################################################################################################################
 
 if [ $EUID != 0 ]; then # Elevate if not already.
@@ -22,7 +22,7 @@ AVAILABLEVERSION=$(curl -s https://golang.org/VERSION?m=text) # Returns in form 
 
 function installGoFromTheGOOG() { # Pulls down latest golang direct from Google and sets PATH / GOPATH
   cd ~
-  wget https://dl.google.com/go/$AVAILABLEVERSION.linux-amd64.tar.gz
+  curl https://dl.google.com/go/$AVAILABLEVERSION.linux-amd64.tar.gz --output $AVAILABLEVERSION.linux-amd64.tar.gz
   tar -C /usr/local -xzf $AVAILABLEVERSION.linux-amd64.tar.gz
   sudo chown -R $SUDO_USER:$SUDO_USER /usr/local/go
   sudo chown $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.bash_profile
