@@ -55,3 +55,6 @@ else
   echo " [-] Installing golang from source as no current version exists"
   installGoFromTheGOOG
 fi
+
+#sorts out the stupid WSL2 windows spaces in $PATH variable in .bash_profile
+curl https://raw.githubusercontent.com/JeffreyShran/dotFiles/master/inbound_dotFiles.sh | bash
