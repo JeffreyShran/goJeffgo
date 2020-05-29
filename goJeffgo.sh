@@ -20,6 +20,7 @@ function version() { # https://apple.stackexchange.com/a/123408 - You need to de
 
 AVAILABLEVERSION=$(curl -s https://golang.org/VERSION?m=text) # Returns in form of "go1.13.5"
 SAYMYNAME=$(id -u -n) # Returns current user. Not tested over SSH, could return SSH user in that instance.
+echo $SAYMYNAME
 
 function installGoFromTheGOOG() { # Pulls down latest golang direct from Google and sets PATH / GOPATH
   cd ~
