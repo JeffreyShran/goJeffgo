@@ -19,19 +19,17 @@ function version() { # https://apple.stackexchange.com/a/123408 - You need to de
 }
 
 AVAILABLEVERSION=$(curl -s https://golang.org/VERSION?m=text) # Returns in form of "go1.13.5"
-SAYMYNAME=$(id -u -n) # Returns current user. Not tested over SSH, could return SSH user in that instance.
-echo $SAYMYNAME
 
 function installGoFromTheGOOG() { # Pulls down latest golang direct from Google and sets PATH / GOPATH
   cd ~
   wget https://dl.google.com/go/$AVAILABLEVERSION.linux-amd64.tar.gz
   tar -C /usr/local -xzf $AVAILABLEVERSION.linux-amd64.tar.gz
-  sudo chown -R $SAYMYNAME:$SAYMYNAME /usr/local/go
-  sudo chown $SAYMYNAME:$SAYMYNAME $HOME/.bash_profile
-  mkdir -p $HOME/go/{bin,src}
-  sudo echo "export GOPATH=$HOME/go" >> $HOME/.bash_profile; source $HOME/.bash_profile
-  sudo echo "export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin" >> $HOME/.bash_profile
-  . $HOME/.bash_profile
+  sudo chown -R $SUDO_USER:$SUDO_USER /usr/local/go
+  sudo chown $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.bash_profile
+  mkdir -p /home/$SUDO_USER/go/{bin,src}
+  sudo echo "export GOPATH=/home/$SUDO_USER/go" >> /home/$SUDO_USER/.bash_profile; source /home/$SUDO_USER/.bash_profile
+  sudo echo "export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin" >> /home/$SUDO_USER/.bash_profile
+  . /home/$SUDO_USER/.bash_profile
   sudo rm $AVAILABLEVERSION.linux-amd64.tar.gz
   echo " [!] Finished"
 }
