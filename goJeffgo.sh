@@ -32,7 +32,15 @@ function installGoFromTheGOOG() { # Pulls down latest golang direct from Google 
   sudo chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/go
   . /home/$SUDO_USER/.bash_profile
   sudo rm $AVAILABLEVERSION.linux-amd64.tar.gz
-  echo " [!] Finished"
+  echo " [!] Installed $AVAILABLEVERSION"
+}
+
+function updateGoFromTheGOOG() { # Pulls down latest golang direct from Google and sets PATH / GOPATH
+  cd ~
+  curl https://dl.google.com/go/$AVAILABLEVERSION.linux-amd64.tar.gz --output $AVAILABLEVERSION.linux-amd64.tar.gz
+  tar -C /usr/local -xzf $AVAILABLEVERSION.linux-amd64.tar.gz
+  sudo rm $AVAILABLEVERSION.linux-amd64.tar.gz
+  echo " [!] Updated to $AVAILABLEVERSION"
 }
 
 if [[ $(which go | tr -d ' \n\r\t ' | head -c1 | wc -c) -ne 0 ]]; then # https://stackoverflow.com/a/35165216/4373967
@@ -46,7 +54,7 @@ if [[ $(which go | tr -d ' \n\r\t ' | head -c1 | wc -c) -ne 0 ]]; then # https:/
   if [ $(version $INSTALLEDVERSION | cut -c 3-) -lt $(version $AVAILABLEVERSION) ]; then # Comparison Operators - http://tldp.org/LDP/abs/html/comparison-ops.html also pipe to cut and remove leading 2 characters
     echo " [-] Current go version is older than the one available from Google"
     sudo rm -f $(which go)    # remove current golang if exists. -f will ignore nonexistent files, never prompt
-    installGoFromTheGOOG # Update to latest verion
+    updateGoFromTheGOOG # Update to latest verion
   else
     echo " [-] Currently installed golang v$INSTALLEDVERSION is already latest version"
     echo " [!] Finished"
