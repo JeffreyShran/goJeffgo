@@ -25,10 +25,10 @@ function installGoFromTheGOOG() { # Pulls down latest golang direct from Google 
   curl https://dl.google.com/go/$AVAILABLEVERSION.linux-amd64.tar.gz --output $AVAILABLEVERSION.linux-amd64.tar.gz
   tar -C /usr/local -xzf $AVAILABLEVERSION.linux-amd64.tar.gz
   sudo chown -R $SUDO_USER:$SUDO_USER /usr/local/go
-  sudo chown $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.bash_profile
-  mkdir -p /home/$SUDO_USER/go/{bin,src}
   sudo echo "export GOPATH=/home/$SUDO_USER/go" >> /home/$SUDO_USER/.bash_profile; source /home/$SUDO_USER/.bash_profile
   sudo echo "export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin" >> /home/$SUDO_USER/.bash_profile
+  sudo chown $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.bash_profile
+  mkdir -p /home/$SUDO_USER/go/{bin,src}
   . /home/$SUDO_USER/.bash_profile
   sudo rm $AVAILABLEVERSION.linux-amd64.tar.gz
   echo " [!] Finished"
