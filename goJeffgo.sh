@@ -27,6 +27,7 @@ function installGoFromTheGOOG() { # Pulls down latest golang direct from Google 
   sudo chown -R $SUDO_USER:$SUDO_USER /usr/local/go
   sudo echo "export GOPATH=/home/$SUDO_USER/go" >> /home/$SUDO_USER/.bash_profile; source /home/$SUDO_USER/.bash_profile
   sudo echo "export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin" >> /home/$SUDO_USER/.bash_profile
+  sudo echo "export GOBIN=$GOPATH/bin" >> /home/$SUDO_USER/.bash_profile
   sudo chown $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.bash_profile
   mkdir -p /home/$SUDO_USER/go/{bin,src}
   sudo chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/go
