@@ -1,10 +1,13 @@
 # goJeffgo
 
-Debian golang version is always behind, this short shell script will pull the latest direct from Google.
+The golang version from package managers is always behind or so old that the installed version isn't useful at all. This short shell script will pull the latest version directly from Google and install or update the current version.
+
+Does not support anything other than standard installs for the current user.
 
 Tested with success on the following systems:
 
-* Debian GNU/Linux-amd64 10 (buster) on WSL2 (bash) with a normal (non-root) user.
+* Debian 10 (Buster) on WSL2 with a non-root user.
+* Ubuntu 20.04.3 LTS (Focal Fossa) from Digital Ocean with a non-root user.
 
 ## Getting Started
 
@@ -14,14 +17,17 @@ These instructions will get you up and running. This script searches for existin
 
 ##### On Debian
 
+`curl` should already be installed, if not or you're unsure then run:
 ```
-sudo apt install wget
+sudo apt install curl
 ```
 
 ### Running
 
+Use the same command to install and update in the same way a traditional Go program would work:
+
 ```
-wget -q -O - "https://raw.githubusercontent.com/JeffreyShran/goJeffgo/master/goJeffgo.sh" | bash
+curl https://raw.githubusercontent.com/JeffreyShran/goJeffgo/master/goJeffgo.sh | bash
 ```
 
 ## Contributing / Feedback / Requests
@@ -36,4 +42,4 @@ I'm always happy to receive any feedback good or bad, the best way to do that is
 
 ## License
 
-This project is licensed under the MIT License
+This project is licensed under the MIT License.
