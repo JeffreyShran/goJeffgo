@@ -54,7 +54,7 @@ if [[ $(which go | tr -d ' \n\r\t ' | head -c1 | wc -c) -ne 0 ]]; then # https:/
 
   if [ $(version $INSTALLEDVERSION | cut -c 3-) -lt $(version $AVAILABLEVERSION) ]; then # Comparison Operators - http://tldp.org/LDP/abs/html/comparison-ops.html also pipe to cut and remove leading 2 characters
     echo " [-] Current go version is older than the one available from Google"
-    sudo rm -f $(which go)    # remove current golang if exists. -f will ignore nonexistent files, never prompt
+    sudo rm -rf /usr/local/go/    # remove current golang if exists. -f will ignore nonexistent files, never prompt
     updateGoFromTheGOOG # Update to latest verion
   else
     echo " [-] Currently installed golang v$INSTALLEDVERSION is already latest version"
