@@ -14,7 +14,7 @@ if [ $EUID != 0 ]; then # Elevate if not already.
     exit $?
 fi
 
-function version() { # https://apple.stackexchange.com/a/123408 - You need to define functions in advance of you calling them in your script
+function version() {
   echo "$@" | awk -F. '{ printf("%d%03d%03d%03d\n", $1,$2,$3,$4); }'
 }
 
